@@ -3,6 +3,8 @@ package com.sudoku.models;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.VBox;
+import javafx.geometry.Pos;
 
 public class SudokuButtons {
     private final SudokuGrid sudokuGrid;
@@ -15,6 +17,7 @@ public class SudokuButtons {
 
     public void addButtonsToGrid(GridPane grid) {
         Button solveButton = new Button("Resolver Sudoku");
+        solveButton.setStyle("-fx-font-size: 18px; -fx-padding: 10px 20px; -fx-background-color: #4CAF50; -fx-text-fill: white; -fx-border-radius: 5px; -fx-background-radius: 5px;");
         solveButton.setOnAction(e -> {
             int[][] tablero = sudokuGenerator.getTablero();
             if (sudokuGenerator.resolverSudoku(tablero)) {
@@ -24,16 +27,21 @@ public class SudokuButtons {
             }
         });
 
-        // Agregar el botón a la cuadrícula
-        grid.add(solveButton, 9, 0, 1, 9);
+        Button exitButton = new Button("Salir");
+        exitButton.setStyle("-fx-font-size: 18px; -fx-padding: 10px 20px; -fx-background-color: #FF0000; -fx-text-fill: white; -fx-border-radius: 5px; -fx-background-radius: 5px;");
+        exitButton.setOnAction(e -> System.exit(0));
+
+        // Centrar los botones en un VBox
+        VBox buttonBox = new VBox(10, solveButton, exitButton);
+        buttonBox.setAlignment(Pos.CENTER);
+
+        // Agregar el VBox con los botones a la cuadrícula, en la parte inferior
+        GridPane.setRowIndex(buttonBox, 10);
+        GridPane.setColumnSpan(buttonBox, 9);
+        grid.add(buttonBox, 0, 9, 9, 1);
     }
 
     private void actualizarGridConSolucion(int[][] tablero) {
-        TextField[][] cells = sudokuGrid.getCells();
-        for (int row = 0; row < 9; row++) {
-            for (int col = 0; col < 9; col++) {
-                cells[row][col].setText(String.valueOf(tablero[row][col]));
-            }
-        }
+        sudokuGrid.actualizarGridConTablero(tablero);
     }
 }

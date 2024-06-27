@@ -14,8 +14,9 @@ public class SudokuGrid {
         for (int row = 0; row < 9; row++) {
             for (int col = 0; col < 9; col++) {
                 cells[row][col] = new TextField();
-                cells[row][col].setPrefWidth(40);
-                cells[row][col].setPrefHeight(40);
+                cells[row][col].setPrefWidth(60);
+                cells[row][col].setPrefHeight(60);
+                cells[row][col].setStyle("-fx-font-size: 24px; -fx-alignment: center;"); // Ajuste del tamaño de la fuente y centrado
 
                 // Estilo para los bordes
                 StringBuilder style = new StringBuilder();
@@ -39,4 +40,19 @@ public class SudokuGrid {
     public TextField[][] getCells() {
         return cells;
     }
+
+    public void actualizarGridConTablero(int[][] tablero) {
+        for (int row = 0; row < 9; row++) {
+            for (int col = 0; col < 9; col++) {
+                if (tablero[row][col] != 0) {
+                    cells[row][col].setText(String.valueOf(tablero[row][col]));
+                    cells[row][col].setEditable(false); // Hacer que las celdas con valores iniciales no sean editables
+                } else {
+                    cells[row][col].setText("");
+                    cells[row][col].setEditable(true); // Las celdas vacías son editables
+                }
+            }
+        }
+    }
 }
+
