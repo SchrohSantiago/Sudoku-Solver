@@ -15,7 +15,7 @@ public class SudokuButtons {
         this.sudokuGenerator = new SudokuGenerator();
     }
 
-    public void addButtonsToGrid(GridPane grid) {
+    public void agregarButtonAlGrid(GridPane grid) {
         Button solveButton = new Button("Resolver Sudoku");
         solveButton.setStyle("-fx-font-size: 18px; -fx-padding: 10px 20px; -fx-background-color: #4CAF50; -fx-text-fill: white; -fx-border-radius: 5px; -fx-background-radius: 5px;");
         solveButton.setOnAction(e -> {

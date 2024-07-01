@@ -6,7 +6,7 @@ import javafx.scene.layout.GridPane;
 public class SudokuGrid {
     private final TextField[][] cells = new TextField[9][9];
 
-    public GridPane createGridPane() {
+    public GridPane crearGridPane() {
         GridPane grid = new GridPane();
         grid.setHgap(5);
         grid.setVgap(5);

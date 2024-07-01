@@ -32,10 +32,10 @@ public class App extends Application {
         SudokuGenerator sudokuGenerator = new SudokuGenerator(); // Instancia la clase SudokuGenerator
         int[][] tablero = sudokuGenerator.getTablero(); // Obtiene el tablero generado
         SudokuGrid sudokuGrid = new SudokuGrid(); // Instancia la clase SudokuGrid
-        GridPane grid = sudokuGrid.createGridPane(); // Crea la cuadrícula de Sudoku en un GridPane
+        GridPane grid = sudokuGrid.crearGridPane(); // Crea la cuadrícula de Sudoku en un GridPane
         sudokuGrid.actualizarGridConTablero(tablero); // Actualiza la cuadrícula con los valores del tablero
         SudokuButtons sudokuButtons = new SudokuButtons(sudokuGrid); // Instancia la clase SudokuButtons pasando la cuadrícula de Sudoku
-        sudokuButtons.addButtonsToGrid(grid); // Agrega los botones a la cuadrícula
+        sudokuButtons.agregarButtonAlGrid(grid); // Agrega los botones a la cuadrícula
 
         // Crear un VBox para contener la cuadrícula y los botones
         VBox vbox = new VBox(20, grid);
