@@ -16,6 +16,7 @@ import javafx.stage.Stage;
 import javafx.geometry.Insets;
 
 public class App extends Application {
+    // JUAN CRUZ MONTECCINO Y SCHROH SANTIAGO
     public static void main(String[] args) {
         launch(args); // Lanza la aplicación JavaFX
     }
